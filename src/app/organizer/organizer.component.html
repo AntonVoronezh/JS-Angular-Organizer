@@ -1,1 +1,34 @@
-<p>organizer works!</p>
+<section>
+  <header>
+    <strong>
+      {{dateService.date |async | moment:'DD.MM.YYYY'}}
+    </strong>
+
+    <hr/>
+  </header>
+
+  <main>
+    <ul>
+      <li class="task">
+  <span>
+   <strong>1</strong>
+    iy8i6
+  </span>
+
+        <button class="btn btn-primary">Del</button>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <form>
+      <input type="text">
+      <button
+        class="btn btn-primary btn-block"
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+  </footer>
+</section>

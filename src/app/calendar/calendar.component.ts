@@ -7,6 +7,7 @@ interface Day {
   value: moment.Moment;
   active: boolean;
   disabled: boolean;
+  selected: boolean;
 }
 
 interface Week {
@@ -19,7 +20,7 @@ interface Week {
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  calendar: Week;
+  calendar: Week[];
 
   constructor(private dateService: DateService) {
   }
@@ -42,8 +43,18 @@ export class CalendarComponent implements OnInit {
           .fill(0)
           .map(() => {
             const value = date.add(1, 'day').clone();
+            const active = moment().isSame(value, 'date');
+            const disabled = !now.isSame(value, 'month');
+            const selected = now.isSame(value, 'date');
+
+            return {value, active, disabled, selected};
           })
       });
     }
+    this.calendar = calendar;
+  }
+
+  select(day: moment.Moment) {
+    this.dateService.changeDate(day);
   }
 }
