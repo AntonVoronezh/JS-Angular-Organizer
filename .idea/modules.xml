@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JS-Angular-Organizer.iml" filepath="$PROJECT_DIR$/.idea/JS-Angular-Organizer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/organizer.iml" filepath="$PROJECT_DIR$/.idea/organizer.iml" />
     </modules>
   </component>
 </project>
