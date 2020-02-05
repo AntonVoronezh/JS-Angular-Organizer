@@ -8,21 +8,27 @@
   </header>
 
   <main>
-    <ul>
-      <li class="task">
-  <span>
-   <strong>1</strong>
-    iy8i6
-  </span>
+    <ul *ngIf="tasks.length; else noTasks">
+      <li class="task" *ngFor="let task of tasks; let i = index">
+        <span>
+         <strong>{{i + 1}}</strong>
+          {{task.title}}
+        </span>
 
-        <button class="btn btn-primary">Del</button>
+        <button class="btn btn-primary" (click)="delTask(task)">Del</button>
       </li>
     </ul>
+
+    <ng-template #noTasks>
+      <p class="text-center">
+        No tasks yet...
+      </p>
+    </ng-template>
   </main>
 
   <footer>
     <form (ngSubmit)="submit()" [formGroup]="form">
-      <input type="text" formControlName="title">
+      <input type="text" formControlName="title" placeholder="Add new task">
       <button
         class="btn btn-primary btn-block"
         type="submit"
